@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html  ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <title></title>
+</head>
+<body ng-controller="GeneralController">
+  <div class="container">
+    <form>
+      <div class="form-group">
+        <label for="nomeCidade">Nome da Cidade de Origem</label>
+        <input type="text" class="form-control" id="nomeCidade" placeholder="Digite aqui" ng-model="grafo.verticeOrigem">
+      </div>
+      <div class="form-group">
+        <label for="nomeCidadeDois">Nome da Cidade de Destino</label>
+        <input type="text" class="form-control" id="nomeCidadeDois" placeholder="Digite aqui" ng-model="grafo.verticeDestino">
+      </div>
+      <div class="form-group">
+        <label for="valor">Valor da Distância</label>
+        <input type="number" class="form-control" placeholder="Somente números" ng-model="grafo.valorAresta">
+      </div>
+    </form>
+    <!-- Teste sem header -->
+    <button
+      class="btn btn-default"
+      type="button"
+      ng-csv="getArray()"
+      filename="test.csv"
+    >
+      Export
+    </button>
+    <!-- Teste com header -->
+    <button
+      class="btn btn-primary"
+      type="button"
+      ng-csv="getArray()"
+      csv-header="getHeader()"
+      filename="test.csv"
+    >
+    Export Header
+  </button>
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.6.10/angular-sanitize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-csv/0.3.6/ng-csv.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
